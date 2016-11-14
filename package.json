@@ -1,0 +1,45 @@
+{
+  "name": "run-jxa",
+  "version": "0.0.0",
+  "description": "Run JXA (macOS JavaScript for Automation) code and get the result",
+  "license": "MIT",
+  "repository": "sindresorhus/run-jxa",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "macos",
+    "osx",
+    "mac",
+    "jxa",
+    "javascript",
+    "osascript",
+    "run",
+    "execute",
+    "code",
+    "script",
+    "automation"
+  ],
+  "dependencies": {
+    "execa": "^0.5.0",
+    "subsume": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  }
+}
