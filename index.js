@@ -20,7 +20,12 @@ const prepareOpts = (input, args) => {
 
 const handleOutput = str => {
 	const res = subsume.parse(str);
-	console.log(res.rest.slice(0, -1));
+	const log = res.rest.slice(0, -1);
+
+	if (log.length > 0) {
+		console.log(log);
+	}
+
 	return res.data && JSON.parse(res.data).data;
 };
 
