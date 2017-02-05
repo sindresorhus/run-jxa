@@ -6,7 +6,7 @@ const Subsume = require('subsume');
 const yosemiteOrHigher = process.platform === 'darwin' && Number(os.release().split('.')[0]) >= 14;
 const subsume = new Subsume();
 const cmdArgs = ['-l', 'JavaScript'];
-const osErrMsg = 'Requires macOS Yosemite or higher';
+const osErrMsg = 'Requires macOS 10.10 or later';
 
 const prepareOpts = (input, args) => {
 	const stringTpl = `function(){const args=[].slice.call(arguments);\n${input}\n}`;

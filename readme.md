@@ -2,7 +2,7 @@
 
 > Run [JXA](https://github.com/dtinth/JXA-Cookbook/wiki) *(macOS JavaScript for Automation)* code and get the result
 
-*Requires macOS Yosemite or higher.*
+*Requires macOS 10.10 or later.*
 
 
 ## Install
