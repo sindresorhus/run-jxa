@@ -1,12 +1,10 @@
 'use strict';
-const os = require('os');
 const execa = require('execa');
 const Subsume = require('subsume');
+const macosVersion = require('macos-version');
 
-const yosemiteOrHigher = process.platform === 'darwin' && Number(os.release().split('.')[0]) >= 14;
 const subsume = new Subsume();
 const cmdArgs = ['-l', 'JavaScript'];
-const osErrMsg = 'Requires macOS 10.10 or later';
 
 const prepareOpts = (input, args) => {
 	const stringTpl = `function(){const args=[].slice.call(arguments);\n${input}\n}`;
@@ -29,18 +27,12 @@ const handleOutput = str => {
 	return res.data && JSON.parse(res.data).data;
 };
 
-module.exports = (input, args) => {
-	if (!yosemiteOrHigher) {
-		return Promise.reject(new Error(osErrMsg));
-	}
-
+module.exports = (input, args) => Promise.resolve().then(() => {
+	macosVersion.assertGreaterThanOrEqualTo('10.10');
 	return execa.stderr('osascript', cmdArgs, prepareOpts(input, args)).then(handleOutput);
-};
+});
 
 module.exports.sync = (input, args) => {
-	if (!yosemiteOrHigher) {
-		throw new Error(osErrMsg);
-	}
-
+	macosVersion.assertGreaterThanOrEqualTo('10.10');
 	return handleOutput(execa.sync('osascript', cmdArgs, prepareOpts(input, args)).stderr);
 };
