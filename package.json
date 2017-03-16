@@ -1,6 +1,6 @@
 {
   "name": "run-jxa",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Run JXA (macOS JavaScript for Automation) code and get the result",
   "license": "MIT",
   "repository": "sindresorhus/run-jxa",
