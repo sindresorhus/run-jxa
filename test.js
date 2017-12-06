@@ -1,5 +1,5 @@
 import test from 'ava';
-import m from './';
+import m from '.';
 
 test('runJxa() - function', async t => {
 	const res = await m((a, b) => {
@@ -24,6 +24,6 @@ test('runJxa() - string', async t => {
 	t.is(res, '🐴-🦄');
 });
 
-test('runJxa.sync()', async t => {
+test('runJxa.sync()', t => {
 	t.is(m.sync((a, b) => `${b}-${a}`, ['🦄', '🐴']), '🐴-🦄');
 });

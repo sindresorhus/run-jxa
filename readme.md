@@ -1,14 +1,14 @@
 # run-jxa [![Build Status](https://travis-ci.org/sindresorhus/run-jxa.svg?branch=master)](https://travis-ci.org/sindresorhus/run-jxa)
 
-> Run [JXA](https://github.com/dtinth/JXA-Cookbook/wiki) *(macOS JavaScript for Automation)* code and get the result
+> Run [JXA](https://github.com/dtinth/JXA-Cookbook) code and get the result
 
-*Requires macOS 10.10 or later.*
+*JXA is JavaScript for Automation on macOS. Requires macOS 10.10 or later.*
 
 
 ## Install
 
 ```
-$ npm install --save run-jxa
+$ npm install run-jxa
 ```
 
 
@@ -19,13 +19,15 @@ Use a function:
 ```js
 const runJxa = require('run-jxa');
 
-runJxa((unicorn, horse) => {
-	// this is run in the JXA engine
-	return `I love ${unicorn} & ${horse}`;
-}, ['🦄', '🐴']).then(result => {
+(async () => {
+	const result = await runJxa((unicorn, horse) => {
+		// This is run in the JXA engine
+		return `I love ${unicorn} & ${horse}`;
+	}, ['🦄', '🐴']);
+
 	console.log(result);
 	//=> 'I love 🦄 & 🐴'
-});
+})();
 ```
 
 Or a string:
@@ -33,13 +35,15 @@ Or a string:
 ```js
 const runJxa = require('run-jxa');
 
-runJxa(`
-	const [unicorn, horse] = args;
-	return \`I love \${unicorn} & \${horse}\`;
-`, ['🦄', '🐴']).then(result => {
+(async () => {
+	const result = await runJxa(`
+		const [unicorn, horse] = args;
+		return \`I love \${unicorn} & \${horse}\`;
+	`, ['🦄', '🐴']);
+
 	console.log(result);
 	//=> 'I love 🦄 & 🐴'
-});
+})();
 ```
 
 
@@ -68,6 +72,11 @@ Note: The JXA context is completely synchronous, so asynchronous functions like 
 Type: `Array`
 
 Arguments to pass to the JXA context. Items should be serializable (`JSON.stringify`'able).
+
+
+## Related
+
+- [is-jxa](https://github.com/sindresorhus/is-jxa) - Check if your code is running in a JXA environment
 
 
 ## License
