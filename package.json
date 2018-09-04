@@ -15,6 +15,7 @@
   "scripts": {
     "test": "xo && ava"
   },
+  "typings": "types/index.d.ts",
   "files": [
     "index.js"
   ],
