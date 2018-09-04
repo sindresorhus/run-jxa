@@ -27,7 +27,7 @@ const handleOutput = str => {
 	return res.data && JSON.parse(res.data).data;
 };
 
-let runJxa = (input, args) => Promise.resolve().then(() => {
+const runJxa = (input, args) => Promise.resolve().then(() => {
 	macosVersion.assertGreaterThanOrEqualTo('10.10');
 	return execa.stderr('osascript', cmdArgs, prepareOpts(input, args)).then(handleOutput);
 });
@@ -37,4 +37,4 @@ runJxa.sync = (input, args) => {
 	return handleOutput(execa.sync('osascript', cmdArgs, prepareOpts(input, args)).stderr);
 };
 
-exports.default = runJxa
+exports.default = runJxa;
