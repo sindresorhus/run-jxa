@@ -3,4 +3,4 @@ export interface runJxa {
     sync (input: any, args?: Array<any>):any;
 }
 declare let runJxa:runJxa;
-export default runJxa
+export default runJxa;
