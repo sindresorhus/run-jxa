@@ -37,4 +37,4 @@ runJxa.sync = (input, args) => {
 	return handleOutput(execa.sync('osascript', cmdArgs, prepareOpts(input, args)).stderr);
 };
 
-exports.default = runJxa;
+module.exports = runJxa;

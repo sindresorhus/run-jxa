@@ -13,11 +13,11 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava && tsd-check"
   },
-  "typings": "types/index.d.ts",
   "files": [
-    "index.js"
+    "index.js",
+		"index.d.ts"
   ],
   "keywords": [
     "macos",
@@ -38,6 +38,12 @@
   },
   "devDependencies": {
     "ava": "*",
-    "xo": "*"
+    "xo": "*",
+    "tsd-check": "*"
+  },
+  "xo": {
+    "ignores": [
+      "*.ts"
+    ]
   }
 }
