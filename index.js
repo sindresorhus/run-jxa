@@ -13,7 +13,9 @@ const prepareOpts = (input, args) => {
 	const fnCall = `(${fnStr})(${argsStr})`;
 	const output = `JSON.stringify({data: ${fnCall}})`;
 	const script = `console.log('${subsume.prefix}' + ${output} + '${subsume.postfix}');`;
-	return {input: script};
+	return {
+		input: script
+	};
 };
 
 const handleOutput = str => {
@@ -38,3 +40,4 @@ runJxa.sync = (input, args) => {
 };
 
 module.exports = runJxa;
+module.exports.default = runJxa;

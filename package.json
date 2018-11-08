@@ -1,49 +1,43 @@
 {
-  "name": "run-jxa",
-  "version": "1.2.0",
-  "description": "Run JXAcode and get the result",
-  "license": "MIT",
-  "repository": "sindresorhus/run-jxa",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "test": "xo && ava && tsd-check"
-  },
-  "files": [
-    "index.js",
+	"name": "run-jxa",
+	"version": "1.2.0",
+	"description": "Run JXAcode and get the result",
+	"license": "MIT",
+	"repository": "sindresorhus/run-jxa",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "ava && tsd-check"
+	},
+	"files": [
+		"index.js",
 		"index.d.ts"
-  ],
-  "keywords": [
-    "macos",
-    "jxa",
-    "javascript",
-    "osascript",
-    "run",
-    "mac",
-    "execute",
-    "code",
-    "script",
-    "automation"
-  ],
-  "dependencies": {
-    "execa": "^0.8.0",
-    "macos-version": "^4.0.0",
-    "subsume": "^1.0.0"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "xo": "*",
-    "tsd-check": "*"
-  },
-  "xo": {
-    "ignores": [
-      "*.ts"
-    ]
-  }
+	],
+	"keywords": [
+		"macos",
+		"jxa",
+		"javascript",
+		"osascript",
+		"run",
+		"mac",
+		"execute",
+		"code",
+		"script",
+		"automation"
+	],
+	"dependencies": {
+		"execa": "^0.8.0",
+		"macos-version": "^4.0.0",
+		"subsume": "^1.0.0"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"tsd-check": "^0.2.1"
+	}
 }
