@@ -1,3 +1,4 @@
+type JSONStringifyable = object | number | string | boolean;
 export interface runJxa {
 	/**
 	 * Returns a Promise for the value returned from input.
@@ -8,8 +9,10 @@ export interface runJxa {
 	 * @param {!Array[any]} args - Arguments to pass to the JXA context. Items should be serializable (JSON.stringify'able).
 	 * @returns Returns a Promise for the value returned from input.
 	 */
-
-	(input: string | ((...args: String[]) => void), args?: any[]): Promise<any>;
+	(
+		input: string | ((...args: JSONStringifyable[]) => void),
+		args?: JSONStringifyable[]
+	): Promise<any>;
 
 	/**
 	 * Returns the value returned from input.
@@ -20,7 +23,10 @@ export interface runJxa {
 	 * @param {!Array[any]} args - Arguments to pass to the JXA context. Items should be serializable (JSON.stringify'able).
 	 * @returns Returns the value returned from input.
 	 */
-	sync(input: string | ((...args: String[]) => void), args?: any[]): any;
+	sync(
+		input: string | ((...args: JSONStringifyable[]) => void),
+		args?: JSONStringifyable[]
+	): any;
 }
 declare const runJxa: runJxa;
 export default runJxa;
