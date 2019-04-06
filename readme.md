@@ -69,7 +69,7 @@ Note: The JXA context is completely synchronous, so asynchronous functions like 
 
 ### arguments
 
-Type: `Array`
+Type: `unknown[]`
 
 Arguments to pass to the JXA context. Items should be serializable (`JSON.stringify`'able).
 

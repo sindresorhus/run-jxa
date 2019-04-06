@@ -12,7 +12,7 @@ declare const runJxa: {
 
 	Note: The JXA context is completely synchronous, so asynchronous functions like `setTimeout` are not available.
 	@param arguments - Arguments to pass to the JXA context. Items should be serializable (`JSON.stringify`'able).
-	@returns The value returned from input.
+	@returns The value returned from `input`.
 
 	@example
 	```
@@ -53,7 +53,7 @@ declare const runJxa: {
 
 	Note: The JXA context is completely synchronous, so asynchronous functions like `setTimeout` are not available.
 	@param arguments - Arguments to pass to the JXA context. Items should be serializable (`JSON.stringify`'able).
-	@returns The value returned from input.
+	@returns The value returned from `input`.
 	*/
 	sync<ReturnType extends JsonValue>(
 		input: string | ((...args: JsonValue[]) => ReturnType),
