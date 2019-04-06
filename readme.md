@@ -59,7 +59,7 @@ Returns the value returned from `input`.
 
 Type: `Function` `string`
 
-If a function, it's stringified and passed to JXA. It should be atomic, meaning it doesn't access anything outside its body.
+If a function, it's stringified and passed to JXA. It should be [pure](https://en.wikipedia.org/wiki/Pure_function), meaning it doesn't access anything outside its body.
 
 If a string, you can access the specified arguments with `args` array. Use the `arguments` parameter rather than template interpolation so you don't have to do escaping.
 
