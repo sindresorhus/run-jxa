@@ -1,4 +1,4 @@
-# run-jxa [![Build Status](https://travis-ci.org/sindresorhus/run-jxa.svg?branch=master)](https://travis-ci.org/sindresorhus/run-jxa)
+# run-jxa
 
 > Run [JXA](https://github.com/dtinth/JXA-Cookbook) code and get the result
 
