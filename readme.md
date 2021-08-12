@@ -4,60 +4,55 @@
 
 *JXA is JavaScript for Automation on macOS. Requires macOS 10.10 or later.*
 
-
 ## Install
 
 ```
 $ npm install run-jxa
 ```
 
-
 ## Usage
 
 Use a function:
 
 ```js
-const runJxa = require('run-jxa');
+import {runJxa} from 'run-jxa';
 
-(async () => {
-	const result = await runJxa((unicorn, horse) => {
-		// This is run in the JXA engine
-		return `I love ${unicorn} & ${horse}`;
-	}, ['🦄', '🐴']);
+const result = await runJxa((unicorn, horse) => {
+	// This is run in the JXA engine
+	return `I love ${unicorn} & ${horse}`;
+}, ['🦄', '🐴']);
 
-	console.log(result);
-	//=> 'I love 🦄 & 🐴'
-})();
+console.log(result);
+//=> 'I love 🦄 & 🐴'
 ```
 
 Or a string:
 
 ```js
-const runJxa = require('run-jxa');
+import {runJxa} from 'run-jxa';
 
-(async () => {
-	const result = await runJxa(`
-		const [unicorn, horse] = args;
-		return \`I love \${unicorn} & \${horse}\`;
-	`, ['🦄', '🐴']);
+const result = await runJxa(`
+	const [unicorn, horse] = args;
+	return \`I love \${unicorn} & \${horse}\`;
+`, ['🦄', '🐴']);
 
-	console.log(result);
-	//=> 'I love 🦄 & 🐴'
-})();
+console.log(result);
+//=> 'I love 🦄 & 🐴'
 ```
 
+## API
 
-## runJxa(input, [arguments])
+### runJxa(input, arguments?)
 
 Returns a `Promise` for the value returned from `input`.
 
-## runJxa.sync(input, [arguments])
+### runJxaSync(input, arguments?)
 
 Returns the value returned from `input`.
 
-### input
+#### input
 
-Type: `Function` `string`
+Type: `Function | string`
 
 If a function, it's stringified and passed to JXA. It should be [pure](https://en.wikipedia.org/wiki/Pure_function), meaning it doesn't access anything outside its body.
 
@@ -67,18 +62,14 @@ You can `console.log` inside `input`. It will be forwarded to stdout. Useful for
 
 Note: The JXA context is completely synchronous, so asynchronous functions like `setTimeout` are not available.
 
-### arguments
+#### arguments
 
 Type: `unknown[]`
 
-Arguments to pass to the JXA context. Items should be serializable (`JSON.stringify`'able).
+Arguments to pass to the JXA context.
 
+Items should be serializable (`JSON.stringify`'able).
 
 ## Related
 
 - [is-jxa](https://github.com/sindresorhus/is-jxa) - Check if your code is running in a JXA environment
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

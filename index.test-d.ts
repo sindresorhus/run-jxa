@@ -1,38 +1,37 @@
-import {expectType} from 'tsd';
+import {expectType, expectAssignable} from 'tsd';
 import {JsonValue} from 'type-fest';
-import runJxa = require('.');
+import {runJxa, runJxaSync} from './index.js';
 
-expectType<Promise<string>>(
+expectAssignable<Promise<string>>(
 	runJxa(
-		(unicorn, horse) => {
-			return `I love ${unicorn} & ${horse}`;
-		},
-		['🦄', '🐴']
-	)
+		(unicorn, horse) => `I love ${unicorn} & ${horse}`,
+		['🦄', '🐴'],
+	),
 );
+
 expectType<Promise<JsonValue>>(
 	runJxa(
 		`
 		const [unicorn, horse] = args;
 		return \`I love \${unicorn} & \${horse}\`;
 	`,
-		['🦄', '🐴']
-	)
+		['🦄', '🐴'],
+	),
 );
-expectType<string>(
-	runJxa.sync(
-		(unicorn, horse) => {
-			return `I love ${unicorn} & ${horse}`;
-		},
-		['🦄', '🐴']
-	)
+
+expectAssignable<string>(
+	runJxaSync(
+		(unicorn, horse) => `I love ${unicorn} & ${horse}`,
+		['🦄', '🐴'],
+	),
 );
+
 expectType<JsonValue>(
-	runJxa.sync(
+	runJxaSync(
 		`
 		const [unicorn, horse] = args;
 		return \`I love \${unicorn} & \${horse}\`;
 	`,
-		['🦄', '🐴']
-	)
+		['🦄', '🐴'],
+	),
 );
