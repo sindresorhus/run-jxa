@@ -1,5 +1,14 @@
 import {type JsonValue} from 'type-fest';
 
+export type Options = {
+	/**
+	An AbortSignal that can be used to cancel the JXA execution.
+
+	Only supported by the async function.
+	*/
+	readonly signal?: AbortSignal;
+};
+
 /**
 Run [JXA](https://github.com/dtinth/JXA-Cookbook) code and get the result.
 
@@ -11,6 +20,7 @@ You can `console.log` inside `input`. It will be forwarded to stdout. Useful for
 
 Note: The JXA context is completely synchronous, so asynchronous functions like `setTimeout` are not available.
 @param arguments - Arguments to pass to the JXA context. Items should be serializable (`JSON.stringify`'able).
+@param options - Options for the execution.
 @returns The value returned from `input`.
 
 @example
@@ -36,7 +46,8 @@ console.log(stringResult);
 */
 export function runJxa<ReturnType extends JsonValue, ArgumentsType extends readonly JsonValue[]>(
 	input: string | ((...args: ArgumentsType) => ReturnType),
-	arguments?: ArgumentsType
+	arguments?: ArgumentsType,
+	options?: Options
 ): Promise<ReturnType>;
 
 /**

@@ -40,9 +40,36 @@ console.log(result);
 //=> 'I love 🦄 & 🐴'
 ```
 
+Cancel a long-running script:
+
+```js
+import {runJxa} from 'run-jxa';
+
+const controller = new AbortController();
+
+// Cancel after 5 seconds
+setTimeout(() => {
+	controller.abort();
+}, 5000);
+
+try {
+	const result = await runJxa(() => {
+		// Some potentially long-running operation
+		const app = Application('Finder');
+		return app.windows.length;
+	}, undefined, {signal: controller.signal});
+	
+	console.log(result);
+} catch (error) {
+	if (error.name === 'AbortError') {
+		console.log('Script was cancelled');
+	}
+}
+```
+
 ## API
 
-### runJxa(input, arguments?)
+### runJxa(input, arguments?, options?)
 
 Returns a `Promise` for the value returned from `input`.
 
@@ -69,6 +96,18 @@ Type: `unknown[]`
 Arguments to pass to the JXA context.
 
 Items should be serializable (`JSON.stringify`'able).
+
+#### options
+
+Type: `object`
+
+##### signal
+
+Type: `AbortSignal`
+
+An [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that can be used to cancel the JXA execution.
+
+Only supported by the async `runJxa()` function, not the sync version.
 
 ## Related
 
