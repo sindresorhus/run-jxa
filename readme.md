@@ -6,8 +6,8 @@
 
 ## Install
 
-```
-$ npm install run-jxa
+```sh
+npm install run-jxa
 ```
 
 ## Usage

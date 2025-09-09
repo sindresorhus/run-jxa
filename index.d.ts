@@ -1,4 +1,4 @@
-import {JsonValue} from 'type-fest';
+import {type JsonValue} from 'type-fest';
 
 /**
 Run [JXA](https://github.com/dtinth/JXA-Cookbook) code and get the result.

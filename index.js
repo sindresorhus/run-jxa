@@ -1,4 +1,4 @@
-import execa from 'execa';
+import {execa} from 'execa';
 import Subsume from 'subsume';
 import {assertMacOSVersionGreaterThanOrEqualTo} from 'macos-version';
 
